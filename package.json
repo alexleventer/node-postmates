@@ -1,0 +1,27 @@
+{
+  "name": "node-postmates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexleventer/node-postmates.git"
+  },
+  "author": "Alex Leventer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexleventer/node-postmates/issues"
+  },
+  "homepage": "https://github.com/alexleventer/node-postmates#readme",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.2.0",
+    "should": "^11.2.0"
+  },
+  "dependencies": {
+    "request-promise": "^4.1.1"
+  }
+}
