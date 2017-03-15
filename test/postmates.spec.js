@@ -4,7 +4,7 @@ const assert = require('assert');
 
 describe('Postmates Client Test', function() {
   let postmates = new Postmates('', '');
-  it.skip('should throw error if apiKey is not provided', function() {
+  it('should throw error if apiKey is not provided', function() {
     try {
       postmates = new Postmates('clientId');
       assert.ok('false', 'apiKey was not provided but should have been');
