@@ -1,7 +1,7 @@
 {
   "name": "node-postmates",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js wrapper for the Postmates API",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test/*.js",
