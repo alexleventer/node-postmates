@@ -3,7 +3,13 @@ const Postmates = require('../lib/postmates');
 const assert = require('assert');
 
 describe('Postmates Client Test', function() {
-  let postmates = new Postmates('', '');
+  const clientId = process.env.CLIENT_ID;
+  const apiKey = process.env.API_KEY;
+  if(!clientId || !apiKey) {
+    throw new Error("A CLIENT_ID and API_KEY environment variable are required to run tests");
+  }
+
+  let postmates = new Postmates(clientId, apiKey);
   it('should throw error if apiKey is not provided', function() {
     try {
       postmates = new Postmates('clientId');
@@ -119,7 +125,7 @@ describe('Postmates Client Test', function() {
       });
   });
 
-  it.only('should cancel delivery', function() {
+  it('should cancel delivery', function() {
     const pickupAddress = '20 McAllister St, San Francisco, CA';
     const dropoffAddress = '101 Market St, San Francisco, CA';
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
