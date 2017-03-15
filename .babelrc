@@ -1,4 +1,0 @@
-{
-  "moduleId": "node-postmates",
-  "presets": ["es2015", "stage-0"]
-}
