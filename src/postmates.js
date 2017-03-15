@@ -37,7 +37,7 @@ class Postmates {
   }
 
   getDeliveryZones() {
-    return this.query("GET", `/v1/delivery_zones`, {});
+    return this.query("GET", `/v1/delivery_zones`);
   }
 
   createDelivery(delivery) {
