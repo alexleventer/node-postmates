@@ -1,6 +1,6 @@
 # node-postmates [![Build Status](https://travis-ci.org/alexleventer/node-postmates.svg?branch=master)](https://travis-ci.org/alexleventer/node-postmates)
 
-Node.js wrapper for the [Postmates API](https://postmates.com/developer/).
+Promise based Node.js client for the [Postmates API](https://postmates.com/developer/).
 
 ## Installation
 `npm install --save node-postmates`
