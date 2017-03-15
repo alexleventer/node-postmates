@@ -8,16 +8,7 @@ describe('Postmates Client Test', function() {
   if(!clientId || !apiKey) {
     throw new Error("A CLIENT_ID and API_KEY environment variable are required to run tests");
   }
-
-  let postmates = new Postmates(clientId, apiKey);
-  it('should throw error if apiKey is not provided', function() {
-    try {
-      postmates = new Postmates('clientId');
-      assert.ok('false', 'apiKey was not provided but should have been');
-    } catch(e) {
-      e.should.containEql('Missing apiKey');
-    }
-  });
+  const postmates = new Postmates(clientId, apiKey);
 
   it('should get delivery quote', function() {
     const pickupAddress = '20 McAllister St, San Francisco, CA';
