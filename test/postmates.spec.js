@@ -1,5 +1,5 @@
 const should = require('should');
-const Postmates = require('../lib/postmates');
+const Postmates = require('../src/postmates');
 const assert = require('assert');
 
 describe('Postmates Client Test', function() {
