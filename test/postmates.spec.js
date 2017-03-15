@@ -6,7 +6,7 @@ describe('Postmates Client Test', function() {
   const clientId = process.env.CLIENT_ID;
   const apiKey = process.env.API_KEY;
   if(!clientId || !apiKey) {
-    throw new Error("A CLIENT_ID and API_KEY environment variable are required to run tests");
+    throw new Error('A CLIENT_ID and API_KEY environment variable are required to run tests');
   }
   const postmates = new Postmates(clientId, apiKey);
 
