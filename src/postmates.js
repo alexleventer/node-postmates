@@ -23,10 +23,7 @@ class Postmates {
       },
       formData: body,
       json: true,
-    })
-      .then((results) => {
-        return results;
-      });
+    });
   }
 
   getDeliveryQuote(pickupAddress, dropoffAddress) {
