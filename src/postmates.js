@@ -27,6 +27,12 @@ class Postmates {
   }
 
   getDeliveryQuote(pickupAddress, dropoffAddress) {
+    if(!pickupAddress) {
+      throw new Error('Missing parameter pickupAddress');
+    }
+    if(!dropoffAddress) {
+      throw new Error('Missing parameter dropoffAddress');
+    }
     return this.query("POST", `/v1/customers/${this.customerId}/delivery_quotes`, {
       pickup_address: pickupAddress,
       dropoff_address: dropoffAddress,
@@ -38,6 +44,9 @@ class Postmates {
   }
 
   createDelivery(delivery) {
+    if(!delivery) {
+      throw new Error('Missing parameter delivery');
+    }
     return this.query("POST", `/v1/customers/${this.customerId}/deliveries`, {
       quote_id: delivery.quoteId, // The ID of a previously generated delivery quote. Optional, but recommended.
       manifest: delivery.manifest, // A detailed description of what the courier will be delivering.
@@ -60,14 +69,26 @@ class Postmates {
   }
 
   getDelivery(deliveryId) {
+    if(!deliveryId) {
+      throw new Error('Missing parameter deliveryId');
+    }
     return this.query("GET", `/v1/customers/${this.customerId}/deliveries/${deliveryId}`);
   }
 
   cancelDelivery(deliveryId) {
+    if(!deliveryId) {
+      throw new Error('Missing parameter deliveryId');
+    }
     return this.query("POST", `/v1/customers/${this.customerId}/deliveries/${deliveryId}/cancel`);
   }
 
   addTipToDelivery(deliveryId, tipAmount) {
+    if(!deliveryId) {
+      throw new Error('Missing parameter deliveryId');
+    }
+    if(!tipAmount) {
+      throw new Error('Missing parameter deliveryId');
+    }
     return this.query("POST", `/v1/customers/${this.customerId}/deliveries/${deliveryId}`, {
       tip_by_customer: tipAmount,
     });
