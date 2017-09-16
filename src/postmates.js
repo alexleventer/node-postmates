@@ -10,7 +10,7 @@ class Postmates {
     }
     this.customerId = customerId;
     this.apiKey = apiKey;
-    this.baseUrl =  'https://api.postmates.com/';
+    this.baseUrl = 'https://api.postmates.com/';
   }
 
   query(method, endpoint, body) {
