@@ -2,15 +2,15 @@ const request = require('request-promise');
 
 class Postmates {
   constructor(customerId, apiKey) {
-    this.customerId = customerId;
-    this.apiKey = apiKey;
-    this.baseUrl =  'https://api.postmates.com/';
     if(!customerId) {
       throw new Error('Missing customerId');
     }
     if(!apiKey) {
       throw new Error('Missing apiKey');
     }
+    this.customerId = customerId;
+    this.apiKey = apiKey;
+    this.baseUrl =  'https://api.postmates.com/';
   }
 
   query(method, endpoint, body) {
