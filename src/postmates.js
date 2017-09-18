@@ -87,7 +87,7 @@ class Postmates {
       throw new Error('Missing parameter deliveryId');
     }
     if(!tipAmount) {
-      throw new Error('Missing parameter deliveryId');
+      throw new Error('Missing parameter tipAmount');
     }
     return this.query("POST", `/v1/customers/${this.customerId}/deliveries/${deliveryId}`, {
       tip_by_customer: tipAmount,
