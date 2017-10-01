@@ -1,8 +1,7 @@
-const should = require('should');
 const Postmates = require('../lib/postmates');
 const assert = require('assert');
 
-describe('Postmates Client Test', function() {
+describe('Postmates Client Test', () => {
   const clientId = process.env.CLIENT_ID;
   const apiKey = process.env.API_KEY;
   if(!clientId || !apiKey) {
@@ -10,7 +9,7 @@ describe('Postmates Client Test', function() {
   }
   const postmates = new Postmates(clientId, apiKey);
 
-  it('should get delivery quote', function() {
+  it('should get delivery quote', () => {
     const pickupAddress = '20 McAllister St, San Francisco, CA';
     const dropoffAddress = '101 Market St, San Francisco, CA';
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
@@ -19,22 +18,22 @@ describe('Postmates Client Test', function() {
       });
   });
 
-  it('should get delivery zones', function() {
+  it('should get delivery zones', () => {
     return postmates.getDeliveryZones()
       .then((results) => {
         results[0].should.have.property('type', 'FeatureCollection');
       });
   });
 
-  it('should create delivery', function() {
+  it('should create delivery', () => {
     const pickupAddress = '20 McAllister St, San Francisco, CA';
     const dropoffAddress = '101 Market St, San Francisco, CA';
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
       .then((quote) => {
         const delivery = {
-          quoteId: quote.id, // The ID of a previously generated delivery quote. Optional, but recommended.
-          manifest: 'Test delivery', // A detailed description of what the courier will be delivering.
-          manifestReference: '123', // Optional reference that identifies the manifest.
+          quoteId: quote.id,
+          manifest: 'Test delivery',
+          manifestReference: '123',
           pickupName: 'Alex Test', // Name of the place where the courier will make the pickup
           pickupAddress: pickupAddress, // The pickup address for the delivery.
           pickupPhoneNumber: '123-123-1234', // The phone number of the pickup location.
