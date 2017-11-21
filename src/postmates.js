@@ -3,10 +3,10 @@ const request = require('request-promise');
 class Postmates {
   constructor(customerId, apiKey) {
     if (!customerId) {
-      throw new Error('Missing customerId');
+      throw new Error('Missing parameter, customerId');
     }
     if (!apiKey) {
-      throw new Error('Missing apiKey');
+      throw new Error('Missing parameter, apiKey');
     }
     this.customerId = customerId;
     this.apiKey = apiKey;
@@ -28,10 +28,10 @@ class Postmates {
 
   getDeliveryQuote(pickupAddress, dropoffAddress) {
     if (!pickupAddress) {
-      throw new Error('Missing parameter pickupAddress');
+      throw new Error('Missing parameter, pickupAddress');
     }
     if (!dropoffAddress) {
-      throw new Error('Missing parameter dropoffAddress');
+      throw new Error('Missing parameter, dropoffAddress');
     }
     return this.query('POST', `/v1/customers/${this.customerId}/delivery_quotes`, {
       pickup_address: pickupAddress,
@@ -45,7 +45,7 @@ class Postmates {
 
   createDelivery(delivery) {
     if (!delivery) {
-      throw new Error('Missing parameter delivery');
+      throw new Error('Missing parameter, delivery');
     }
     return this.query('POST', `/v1/customers/${this.customerId}/deliveries`, {
       quote_id: delivery.quoteId,
@@ -70,24 +70,24 @@ class Postmates {
 
   getDelivery(deliveryId) {
     if (!deliveryId) {
-      throw new Error('Missing parameter deliveryId');
+      throw new Error('Missing parameter, deliveryId');
     }
     return this.query('GET', `/v1/customers/${this.customerId}/deliveries/${deliveryId}`);
   }
 
   cancelDelivery(deliveryId) {
     if (!deliveryId) {
-      throw new Error('Missing parameter deliveryId');
+      throw new Error('Missing parameter, deliveryId');
     }
     return this.query('POST', `/v1/customers/${this.customerId}/deliveries/${deliveryId}/cancel`);
   }
 
   addTipToDelivery(deliveryId, tipAmount) {
     if (!deliveryId) {
-      throw new Error('Missing parameter deliveryId');
+      throw new Error('Missing parameter, deliveryId');
     }
     if (!tipAmount) {
-      throw new Error('Missing parameter tipAmount');
+      throw new Error('Missing parameter, tipAmount');
     }
     return this.query('POST', `/v1/customers/${this.customerId}/deliveries/${deliveryId}`, {
       tip_by_customer: tipAmount,
