@@ -1,5 +1,6 @@
 const Postmates = require('../lib/postmates');
 const assert = require('assert');
+const should = require('should');
 
 describe('Postmates Client Test', () => {
   const clientId = process.env.CLIENT_ID;
@@ -35,13 +36,13 @@ describe('Postmates Client Test', () => {
           manifest: 'Test delivery',
           manifestReference: '123',
           pickupName: 'Alex Test', // Name of the place where the courier will make the pickup
-          pickupAddress: pickupAddress, // The pickup address for the delivery.
-          pickupPhoneNumber: '123-123-1234', // The phone number of the pickup location.
+          pickupAddress, // The pickup address for the delivery.
+          pickupPhoneNumber: '301-461-8133', // The phone number of the pickup location.
           pickupBusinessName: '', // Optional business name of the pickup location.
           pickupNotes: '', // Additional instructions for the courier at the pickup location.
           dropoffName: 'Alex Test', // Name of the place where the courier will make the dropoff.
-          dropoffAddress: dropoffAddress, // The dropoff address for the delivery.
-          dropoffPhoneNumber: '123-123-1234', // The phone number of the dropoff location.
+          dropoffAddress, // The dropoff address for the delivery.
+          dropoffPhoneNumber: '301-461-8133', // The phone number of the dropoff location.
           dropoffBusinessName: '', // Optional business name of the dropoff location.
           dropoffNotes: '', // Additional instructions for the courier at the dropoff location.
         };
@@ -63,13 +64,13 @@ describe('Postmates Client Test', () => {
           manifest: 'Test delivery', // A detailed description of what the courier will be delivering.
           manifestReference: '123', // Optional reference that identifies the manifest.
           pickupName: 'Alex Test', // Name of the place where the courier will make the pickup
-          pickupAddress: pickupAddress, // The pickup address for the delivery.
-          pickupPhoneNumber: '123-123-1234', // The phone number of the pickup location.
+          pickupAddress, // The pickup address for the delivery.
+          pickupPhoneNumber: '301-461-8133', // The phone number of the pickup location.
           pickupBusinessName: '', // Optional business name of the pickup location.
           pickupNotes: '', // Additional instructions for the courier at the pickup location.
           dropoffName: 'Alex Test', // Name of the place where the courier will make the dropoff.
-          dropoffAddress: dropoffAddress, // The dropoff address for the delivery.
-          dropoffPhoneNumber: '123-123-1234', // The phone number of the dropoff location.
+          dropoffAddress, // The dropoff address for the delivery.
+          dropoffPhoneNumber: '301-461-8133', // The phone number of the dropoff location.
           dropoffBusinessName: '', // Optional business name of the dropoff location.
           dropoffNotes: '', // Additional instructions for the courier at the dropoff location.
         };
@@ -94,13 +95,13 @@ describe('Postmates Client Test', () => {
           manifest: 'Test delivery', // A detailed description of what the courier will be delivering.
           manifestReference: '123', // Optional reference that identifies the manifest.
           pickupName: 'Alex Test', // Name of the place where the courier will make the pickup
-          pickupAddress: pickupAddress, // The pickup address for the delivery.
-          pickupPhoneNumber: '123-123-1234', // The phone number of the pickup location.
+          pickupAddress, // The pickup address for the delivery.
+          pickupPhoneNumber: '301-461-8133', // The phone number of the pickup location.
           pickupBusinessName: '', // Optional business name of the pickup location.
           pickupNotes: '', // Additional instructions for the courier at the pickup location.
           dropoffName: 'Alex Test', // Name of the place where the courier will make the dropoff.
-          dropoffAddress: dropoffAddress, // The dropoff address for the delivery.
-          dropoffPhoneNumber: '123-123-1234', // The phone number of the dropoff location.
+          dropoffAddress, // The dropoff address for the delivery.
+          dropoffPhoneNumber: '301-461-8133', // The phone number of the dropoff location.
           dropoffBusinessName: '', // Optional business name of the dropoff location.
           dropoffNotes: '', // Additional instructions for the courier at the dropoff location.
         };
@@ -125,13 +126,13 @@ describe('Postmates Client Test', () => {
           manifest: 'Test delivery', // A detailed description of what the courier will be delivering.
           manifestReference: '123', // Optional reference that identifies the manifest.
           pickupName: 'Alex Test', // Name of the place where the courier will make the pickup
-          pickupAddress: pickupAddress, // The pickup address for the delivery.
-          pickupPhoneNumber: '123-123-1234', // The phone number of the pickup location.
+          pickupAddress, // The pickup address for the delivery.
+          pickupPhoneNumber: '301-461-8133', // The phone number of the pickup location.
           pickupBusinessName: '', // Optional business name of the pickup location.
           pickupNotes: '', // Additional instructions for the courier at the pickup location.
           dropoffName: 'Alex Test', // Name of the place where the courier will make the dropoff.
-          dropoffAddress: dropoffAddress, // The dropoff address for the delivery.
-          dropoffPhoneNumber: '123-123-1234', // The phone number of the dropoff location.
+          dropoffAddress, // The dropoff address for the delivery.
+          dropoffPhoneNumber: '301-461-8133', // The phone number of the dropoff location.
           dropoffBusinessName: '', // Optional business name of the dropoff location.
           dropoffNotes: '', // Additional instructions for the courier at the dropoff location.
         };
