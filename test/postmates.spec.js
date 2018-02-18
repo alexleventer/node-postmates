@@ -1,7 +1,8 @@
 const Postmates = require('../lib/postmates');
 const assert = require('assert');
+const should = require('should');
 
-describe('Postmates Client Test', () => {
+describe.only('Postmates Client Test', () => {
   const clientId = process.env.CLIENT_ID;
   const apiKey = process.env.API_KEY;
   const pickupAddress = '20 McAllister St, San Francisco, CA';
