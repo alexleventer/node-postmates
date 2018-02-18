@@ -1,3 +1,3 @@
-const postmates = require('./lib/postmates');
+const Postmates = require('./lib/postmates');
 
-module.exports = postmates;
+export default Postmates;
