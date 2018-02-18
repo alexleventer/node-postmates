@@ -1,4 +1,7 @@
 {
-  "extends": "airbnb",
-  "plugins": ["mocha", "jasmine"]
+  "extends": ["airbnb"],
+  "plugins": ["mocha", "jasmine"],
+  "env": {
+    "jasmine": true
+  }
 }
