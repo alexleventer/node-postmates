@@ -19,7 +19,7 @@ class Postmates {
       method,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${Buffer.alloc(`${this.apiKey}:`).toString('base64')}`,
+        Authorization: `Basic ${Buffer.alloc(this.apiKey.length, this.apiKey, 'base64')}`,
       },
       formData: body,
       json: true,
