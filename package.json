@@ -4,7 +4,7 @@
   "description": "Node.js wrapper for the Postmates API",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha test/*.js",
+    "test": "mocha test/*.js --delay 800 --timeout 5000",
     "prepare": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
   },
   "babel": {
