@@ -12,14 +12,15 @@ class Postmates {
     this.apiKey = apiKey;
     this.baseUrl = 'https://api.postmates.com/';
   }
-
   query(method, endpoint, body) {
+    const url = `${this.baseUrl}${endpoint}`;
+    console.log('URL:', url);
     return request({
-      url: `${this.baseUrl}${endpoint}`,
+      url,
       method,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${Buffer.alloc(this.apiKey.length, this.apiKey, 'base64')}`,
+        Authorization: `Basic ${Buffer.from(`${this.apiKey}:`).toString('base64')}`,
       },
       formData: body,
       json: true,

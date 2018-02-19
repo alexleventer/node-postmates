@@ -57,11 +57,11 @@ describe.only('Postmates Client Test', () => {
   it('should list deliveries', () => {
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
       .then((quote) => {
-        return postmates.createDelivery(delivery, {
+        return postmates.createDelivery(Object.assign(delivery, {
           pickupAddress,
           dropoffAddress,
           quoteId: quote.id,
-        })
+        }))
           .then((deliveryResult) => {
             return postmates.listDeliveries()
               .then((deliveries) => {
@@ -75,11 +75,11 @@ describe.only('Postmates Client Test', () => {
   it('should get delivery', () => {
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
       .then((quote) => {
-        return postmates.createDelivery(delivery, {
+        return postmates.createDelivery(Object.assign(delivery, {
           quoteId: quote.id,
           pickupAddress,
           dropoffAddress,
-        })
+        }))
           .then((deliveryResult) => {
             return postmates.getDelivery(deliveryResult.id)
               .then((results) => {
