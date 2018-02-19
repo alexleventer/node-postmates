@@ -11,7 +11,6 @@ describe.only('Postmates Client Test', () => {
     throw new Error('A CLIENT_ID and API_KEY environment variable are required to run tests');
   }
   const postmates = new Postmates(clientId, apiKey);
-
   const delivery = {
     manifest: 'Test delivery',
     manifestReference: '123',
