@@ -3,14 +3,13 @@ const assert = require('assert');
 const should = require('should');
 
 describe('Postmates Client Test', () => {
-  const clientId = process.env.CLIENT_ID;
-  const apiKey = process.env.API_KEY;
+  const { CLIENT_ID, API_KEY } = process.env;
   const pickupAddress = '20 McAllister St, San Francisco, CA';
   const dropoffAddress = '101 Market St, San Francisco, CA';
-  if (!clientId || !apiKey) {
+  if (!CLIENT_ID || !API_KEY) {
     throw new Error('A CLIENT_ID and API_KEY environment variable are required to run tests');
   }
-  const postmates = new Postmates(clientId, apiKey);
+  const postmates = new Postmates(CLIENT_ID, API_KEY);
   const delivery = {
     manifest: 'Test delivery',
     manifestReference: '123',
