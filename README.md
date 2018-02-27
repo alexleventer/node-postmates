@@ -1,4 +1,5 @@
-<img src="postmates_logo_horiz_black.png" width="350px" alt="Postmates Logo" />
+<img src="postmates_logo_horiz_black.png" width="200px" alt="Postmates Logo" />
+
 # node-postmates [![Build Status](https://travis-ci.org/alexleventer/node-postmates.svg?branch=master)](https://travis-ci.org/alexleventer/node-postmates)
 
 Promise based Node.js client for the [Postmates API](https://postmates.com/developer/).
