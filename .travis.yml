@@ -4,8 +4,9 @@ node_js:
   - "stable"
 
 before_install:
-  - npm install -g istanbul mocha codeclimate-test-reporter
+  - npm install -g nyc mocha codeclimate-test-reporter
 
 after_success:
-  - istanbul cover mocha -- -R spec ./test/*.js
-  - codeclimate < ./coverage/lcov.info
+  - nyc --reporter=lcov npm test
+  - nyc report --reporter=lcov
+  - CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN codeclimate-test-reporter < ./coverage/lcov.info
