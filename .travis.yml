@@ -7,6 +7,5 @@ before_install:
   - npm install -g istanbul mocha codeclimate-test-reporter
 
 after_success:
-  - pwd
-  - istanbul cover _mocha -- -R spec ./test/*.js
+  - istanbul cover mocha -- -R spec ./test/*.js
   - codeclimate < ./coverage/lcov.info
