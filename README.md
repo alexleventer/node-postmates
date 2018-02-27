@@ -7,10 +7,10 @@ Promise based Node.js client for the [Postmates API](https://postmates.com/devel
 
 ## Example Usage
 
-```
+```javascript
 const { CLIENT_ID, API_KEY } = process.env;
 import Postmates from 'node-postmates';
-const postmates = new Postmates('YOUR CLIENT ID', 'YOUR API KEY');
+const postmates = new Postmates(CLIENT_ID, API_KEY);
 
 return postmates.getDeliveryZones()
   .then((zones) => {
