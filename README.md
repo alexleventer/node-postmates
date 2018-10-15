@@ -15,7 +15,5 @@ import Postmates from 'node-postmates';
 const postmates = new Postmates(CLIENT_ID, API_KEY);
 
 return postmates.getDeliveryZones()
-  .then((zones) => {
-    console.log(`These are zones Postmates supports: ${zones}`);
-  });
+  .then(zones => console.log(`These are zones Postmates supports: ${zones}`));
 ```
