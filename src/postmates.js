@@ -1,4 +1,4 @@
-const request = require('request-promise');
+import * as request from 'request-promise';
 
 class Postmates {
   constructor(customerId, apiKey) {
@@ -74,4 +74,4 @@ class Postmates {
   }
 }
 
-module.exports = Postmates;
+export default Postmates;
