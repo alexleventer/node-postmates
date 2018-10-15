@@ -1,4 +1,4 @@
-const Postmates = require('../lib/postmates');
+const Postmates = require('../lib/postmates').default;
 const assert = require('assert');
 const should = require('should');
 

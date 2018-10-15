@@ -1,4 +1,4 @@
-import * as request from 'request-promise';
+import request from 'request-promise';
 
 class Postmates {
   constructor(customerId, apiKey) {
@@ -12,7 +12,7 @@ class Postmates {
     this.apiKey = apiKey;
     this.baseUrl = 'https://api.postmates.com/v1/';
   }
-  request(method, endpoint, body) {
+  query(method, endpoint, body) {
     const url = `${this.baseUrl}${endpoint}`;
     return request({
       url,
@@ -27,18 +27,18 @@ class Postmates {
   }
 
   getDeliveryQuote(pickupAddress, dropoffAddress) {
-    return this.request('POST', `customers/${this.customerId}/delivery_quotes`, {
+    return this.query('POST', `customers/${this.customerId}/delivery_quotes`, {
       pickup_address: pickupAddress,
       dropoff_address: dropoffAddress,
     });
   }
 
   getDeliveryZones() {
-    return this.request('GET', 'delivery_zones');
+    return this.query('GET', 'delivery_zones');
   }
 
   createDelivery(delivery) {
-    return this.request('POST', `customers/${this.customerId}/deliveries`, {
+    return this.query('POST', `customers/${this.customerId}/deliveries`, {
       quote_id: delivery.quoteId,
       manifest: delivery.manifest,
       manifest_reference: delivery.manifestReference,
@@ -56,19 +56,19 @@ class Postmates {
   }
 
   listDeliveries() {
-    return this.request('GET', `customers/${this.customerId}/deliveries`);
+    return this.query('GET', `customers/${this.customerId}/deliveries`);
   }
 
   getDelivery(deliveryId) {
-    return this.request('GET', `customers/${this.customerId}/deliveries/${deliveryId}`);
+    return this.query('GET', `customers/${this.customerId}/deliveries/${deliveryId}`);
   }
 
   cancelDelivery(deliveryId) {
-    return this.request('POST', `customers/${this.customerId}/deliveries/${deliveryId}/cancel`);
+    return this.query('POST', `customers/${this.customerId}/deliveries/${deliveryId}/cancel`);
   }
 
   addTipToDelivery(deliveryId, tipAmount) {
-    return this.request('POST', `customers/${this.customerId}/deliveries/${deliveryId}`, {
+    return this.query('POST', `customers/${this.customerId}/deliveries/${deliveryId}`, {
       tip_by_customer: tipAmount,
     });
   }
