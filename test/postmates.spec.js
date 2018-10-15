@@ -1,5 +1,6 @@
 const Postmates = require('../lib/postmates');
 const assert = require('assert');
+const should = require('should');
 
 describe('Postmates Client Test', () => {
   const { CLIENT_ID, API_KEY } = process.env;
@@ -25,6 +26,7 @@ describe('Postmates Client Test', () => {
   it('should get delivery quote', () => {
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
       .then(results => {
+        console.log(results);
         results.should.have.property('currency', 'usd');
       });
   });
