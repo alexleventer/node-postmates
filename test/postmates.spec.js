@@ -1,6 +1,5 @@
 const Postmates = require('../lib/postmates');
 const assert = require('assert');
-const should = require('should');
 
 describe('Postmates Client Test', () => {
   const { CLIENT_ID, API_KEY } = process.env;
@@ -25,27 +24,27 @@ describe('Postmates Client Test', () => {
 
   it('should get delivery quote', () => {
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
-      .then((results) => {
+      .then(results => {
         results.should.have.property('currency', 'usd');
       });
   });
 
   it('should get delivery zones', () => {
     return postmates.getDeliveryZones()
-      .then((results) => {
+      .then(results => {
         results[0].should.have.property('type', 'FeatureCollection');
       });
   });
 
   it('should create delivery', () => {
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
-      .then((quote) => {
+      .then(quote => {
         return postmates.createDelivery(Object.assign(delivery, {
           pickupAddress,
           dropoffAddress,
           quoteId: quote.id,
         }))
-          .then((results) => {
+          .then(results => {
             results.should.have.property('kind', 'delivery');
             results.should.have.property('status', 'pending');
           });
@@ -54,15 +53,15 @@ describe('Postmates Client Test', () => {
 
   it('should list deliveries', () => {
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
-      .then((quote) => {
+      .then(quote => {
         return postmates.createDelivery(Object.assign(delivery, {
           pickupAddress,
           dropoffAddress,
           quoteId: quote.id,
         }))
-          .then((deliveryResult) => {
+          .then(deliveryResult => {
             return postmates.listDeliveries()
-              .then((deliveries) => {
+              .then(deliveries => {
                 const deliveryIds = deliveries.data.map(item => item.id);
                 assert.ok(true, deliveryIds.indexOf(deliveryResult.id));
               });
@@ -72,15 +71,15 @@ describe('Postmates Client Test', () => {
 
   it('should get delivery', () => {
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
-      .then((quote) => {
+      .then(quote => {
         return postmates.createDelivery(Object.assign(delivery, {
           quoteId: quote.id,
           pickupAddress,
           dropoffAddress,
         }))
-          .then((deliveryResult) => {
+          .then(deliveryResult => {
             return postmates.getDelivery(deliveryResult.id)
-              .then((results) => {
+              .then(results => {
                 results.should.have.property('kind', 'delivery');
                 results.should.have.property('status', 'pending');
               });
@@ -90,15 +89,15 @@ describe('Postmates Client Test', () => {
 
   it('should cancel delivery', () => {
     return postmates.getDeliveryQuote(pickupAddress, dropoffAddress)
-      .then((quote) => {
+      .then(quote => {
         return postmates.createDelivery(Object.assign(delivery, {
           quoteId: quote.id,
           pickupAddress,
           dropoffAddress,
         }))
-          .then((deliveryResults) => {
+          .then(deliveryResults => {
             return postmates.cancelDelivery(deliveryResults.id)
-              .then((results) => {
+              .then(results => {
                 results.should.have.property('kind', 'delivery');
                 results.should.have.property('status', 'canceled');
               });
