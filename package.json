@@ -5,7 +5,6 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test/*.js --delay 800 --timeout 5000",
-    "prepublish": "check-node-version --npm \">=4\" || npm run prepare",
     "prepare": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
   },
   "babel": {
